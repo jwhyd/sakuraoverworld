@@ -1,0 +1,138 @@
+body {
+margin: 0;
+display: block;
+
+background-color: pink;
+}
+#wrapper {
+display: flex; /* This aligns sidebar and main side-by-side */
+  width: 80%;    /* Adjust this to your preference */
+  background: white; 
+  min-height: 100vh;
+}
+#sidebar {
+width: 25%;  /* Fixed width for the menu */
+  background: #B4DC87;
+  border-right: 2px solid red;
+  background-image: url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzYwNW00azluajJ5YXFubmdxejQ0YW9yOWcyZ3Rja2g2c2VraWpmdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JU1W8vq1vvfos/giphy.gif);
+}
+#header {
+text-align: center;
+background: pink;
+color: #333;
+background-image: url(https://giffiles.alphacoders.com/140/140299.gif);
+background-size: contain;
+width: auto;
+height: auto;
+background-position: center;
+align-items: center;
+}
+#main {
+flex: 1; /* Takes up the rest of the space next to the sidebar */
+  display: flex;
+  background: #FFB7C5;
+  flex-direction: column;
+}
+#content {
+width: 25%; /* Let the flex parent handle the width */
+padding: 20px;
+background-color: #FFB7C5;
+}
+
+#content {
+padding: 20px;
+width: 80%;
+display: flex;
+flex-direction: column;
+}
+
+#homelink {
+background: #B4DC87;
+background-image: url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzYwNW00azluajJ5YXFubmdxejQ0YW9yOWcyZ3Rja2g2c2VraWpmdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JU1W8vq1vvfos/giphy.gif);
+font-size: 12px;
+}
+
+.sakuraart {
+position: relative;
+width: 100%;
+}
+
+.titlebar {
+background-color: #FFB7C5;
+  height: 40px;
+  line-height: 40px; /* Centers text vertically */
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+.weatherwidget-io {
+  height: 40px;
+  background-color: #B4DC87;
+  border-style: inset;
+  border-color: red;
+}
+
+.image-container {
+position: relative;
+  width: 500; 
+  height: auto;
+  margin: 20px; /* Adds space between the photos */
+  vertical-align: top;
+  display: inline-block; /* Allows them to sit next to each other */
+  overflow: hidden;
+  
+  /* polaroid */
+  background-color: white;
+  padding: 15px 15px 50px 15px; /* Extra padding at the bottom for the "rim" */
+  border: 1px solid #ddd;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  
+  /* A slight tilt for that "scattered on a desk" look */
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+/* Make every other image tilt the opposite way */
+.image-container:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+img {
+  width: 100%;
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+
+.overlay-text {
+position: absolute;
+  /* Moves text to the bottom white rim of the polaroid */
+  bottom: 10px; 
+  left: 0;
+  right: 0;
+  text-align: center;
+  
+  color: #FFB7C5; 
+  background-color: black;
+  font-family: 'Comic Sans MS', 'Cursive', sans-serif; 
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Hover Effects */
+.image-container:hover {
+  transform: rotate(0deg) scale(1.05); /* Straightens and grows slightly */
+  z-index: 20; /* Brings the hovered image to the very front */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* 1. This makes the specific image grow when its container is hovered */
+.image-container:hover img {
+  transform: scale(1.2);
+}
+
+/* 2. This makes the specific text appear when its container is hovered */
+.image-container:hover .overlay-text {
+  opacity: 1;
+}
